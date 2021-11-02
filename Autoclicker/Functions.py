@@ -4,6 +4,8 @@ def autoClicking(): # Function
     import Input # Import the input (Input.py)
     while True:
         
+        from window import window
+        window.withdraw() # Hide the window
         # Spamming clicks
         if keyboard.is_pressed('1'): # Spamming left click
             while True:
@@ -31,4 +33,6 @@ def autoClicking(): # Function
 
         # For to change the numbers
         elif keyboard.is_pressed('5'):
+            window.deiconify() # Unhide the window
             break
+        

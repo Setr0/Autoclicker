@@ -1,17 +1,9 @@
-
-# Libraries
+12
 import Functions
 from tkinter import CENTER
 import tkinter as tk
 
-# Window configs
-window = tk.Tk() # Window
-window.iconbitmap('favicon.ico') # Icon, only .ico files, for .ico files go to: https://www.icoconverter.com/
-window.geometry('900x650+500+200')  # Window's size and position
-window.title("Autoclicker")  # Window's title
-window.grid_columnconfigure(0, weight=1)  # Collumn configuration
-window.config(bg="#1b1b1b")  # Window's background
-window.resizable(False, False) # The window isn't resizable
+from window import window # The window
 
 # The label
 label = tk.Label(window, text='''Developed by Piggy 
