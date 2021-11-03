@@ -1,11 +1,16 @@
-import pyautogui, keyboard # Libraries
+from re import sub
+import pyautogui, keyboard, subprocess # Libraries
 
 def autoClicking(): # Function
+    
     import Input # Import the input (Input.py)
+    from window import window
+    window.state("withdrawn")
+    subprocess.Popen(['pythonw', 'notify.pyw']) # Running the notify
+    
     while True:
         
-        from window import window
-        window.withdraw() # Hide the window
+        
         # Spamming clicks
         if keyboard.is_pressed('1'): # Spamming left click
             while True:
