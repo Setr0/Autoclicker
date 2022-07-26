@@ -6,7 +6,7 @@ running = False
 
 def autoClicking():
     toaster = win10toast.ToastNotifier()
-    toaster.show_toast("Autoclicker", "Click STOP for changing the numbers", icon_path="icon/favicon.ico", threaded=True)
+    toaster.show_toast("Autoclicker", "Click STOP for changing the numbers", icon_path="favicon.ico", threaded=True)
     while running:
         if keyboard.read_key() == '1':
             while True:

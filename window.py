@@ -5,7 +5,7 @@ window.geometry("900x650+530+200")
 window.title("Autoclicker")
 window.resizable(False, False)
 window.config(bg='#212529')
-window.iconbitmap('icon/favicon.ico')
+window.iconbitmap('favicon.ico')
 
 titleApp = Label(window, text='Autoclicker', font=('Helvetica', 30), fg=('white'), background=('#212529'))
 titleApp.place(x=350, y=80)
