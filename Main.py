@@ -1,6 +1,6 @@
-from windows.root import root, buttonApply, buttonStop, startClickButton, stopClickButton
-from func.autoClicker import run, stop
-from func.widgetsFunctions import hoverOnApply, hoverOffApply, hoverOnStartClick, hoverOnStop, hoverOffStop, hoverOffStartClick, hoverOnStartClick, hoverOnStopClick, hoverOffStopClick
+from windows.root import *
+from func.autoClicker import *
+from func.widgetsFunctions import *
 import func.settings
 
 startClickButton.config(text=func.settings.getStartSettings())

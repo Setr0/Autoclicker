@@ -1,6 +1,7 @@
 import pyautogui, keyboard, win10toast, threading
 from windows.root import END, clickEntry, buttonApply, stopClickButton, startClickButton
 from func.settings import obj
+from func.widgetsFunctions import *
 
 global running
 running = False
@@ -19,9 +20,19 @@ def autoClicking():
 
 def stop():
     clickEntry.config(state="normal")
+
     buttonApply.config(state="normal")
+    buttonApply.bind("<Enter>", hoverOnApply)
+    buttonApply.bind("<Leave>", hoverOffApply)
+
     stopClickButton.config(state="normal")
+    stopClickButton.bind("<Enter>", hoverOnStopClick)
+    stopClickButton.bind("<Leave>", hoverOffStopClick)
+
     startClickButton.config(state="normal")
+    startClickButton.bind("<Enter>", hoverOnStartClick)
+    startClickButton.bind("<Leave>", hoverOffStartClick)
+
     global running
     if running:
         running = False
@@ -31,10 +42,17 @@ def run():
         if int(clickEntry.get()):
             global running
             if not running:
+
                 clickEntry.config(state="disabled")
                 buttonApply.config(state="disabled")
+                buttonApply.unbind("<Enter>")
+
                 stopClickButton.config(state="disabled")
+                stopClickButton.unbind("<Enter>")
+                
                 startClickButton.config(state="disabled")
+                startClickButton.unbind("<Enter>")
+
                 running = True
                 thread = threading.Thread(target=autoClicking)
                 thread.start()
