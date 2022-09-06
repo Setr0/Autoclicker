@@ -54,7 +54,7 @@ def run():
                 startClickButton.unbind("<Enter>")
 
                 running = True
-                thread = threading.Thread(target=autoClicking)
+                thread = threading.Thread(target=autoClicking, daemon=True)
                 thread.start()
     except:
         clickEntry.delete(0, END)
