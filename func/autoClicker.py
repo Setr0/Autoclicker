@@ -12,7 +12,13 @@ def autoClicking():
     while running:
         if keyboard.read_key() == obj["startButton"]:
             while True:
-                pyautogui.click(clicks=int(clickEntry.get()))
+                if int(clickEntry.get()) >= 10:
+                    pyautogui.PAUSE = 0.1
+                    pyautogui.click(clicks=int(clickEntry.get()) // 10)
+                else:
+                    pyautogui.PAUSE = 0.8 / int(clickEntry.get())
+                    pyautogui.click()
+
                 if keyboard.is_pressed(obj["stopButton"]):
                     break
                 if not running:

@@ -20,7 +20,7 @@ stopClickLabel.place(x=129, y=285)
 stopClickButton = Button(root, disabledforeground="white", bg='#dc3545', highlightthickness=0, font=('Helvetica', 20), fg='white', activebackground='#99252f', activeforeground="white")
 stopClickButton.place(x=335, y=260, width=430, height=50)
 
-clickLabel = Label(root, text="Number of clicks", fg="white", background='#121212', font=("Helvetica", 15))
+clickLabel = Label(root, text="Choose the CPS target", fg="white", background='#121212', font=("Helvetica", 15))
 clickLabel.place(x=125, y=380)
 clickEntry = Entry(background='#121212', highlightcolor="white", highlightbackground="white", highlightthickness=1, disabledbackground='#1c1c1c', disabledforeground="white", fg='white', font=('Helvetica', 20), insertbackground='white')
 clickEntry.place(x=129, y=420, width=635, height=40)
