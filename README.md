@@ -8,7 +8,7 @@
 <ul>
   <li>Windows 10 / Windows 11</li>
   <li>Python 3.9</li>
-  <li>run <code>python -r requirements.txt</code></li>
+  <li>run <code>pip -r requirements.txt</code></li>
 </ul>
 
 <h3>Istructions</h3>
