@@ -8,11 +8,11 @@
 <ul>
   <li>Windows 10 / Windows 11</li>
   <li>Python 3.9</li>
+  <li>run <code>pip install -r requirements.txt</code></li>
 </ul>
 
 <h3>Istructions</h3>
 <ul>
-  <li>run <code>pip install -r requirements.txt</code></li>
   <li>Enter the CPS Target in the input</li>
   <li>Press Apply for starting the program</li>
   <li>Press 1 on the keyboard for start autoclicking</li>
