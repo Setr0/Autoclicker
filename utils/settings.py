@@ -1,5 +1,5 @@
 import json, keyboard, threading, sys
-from windows.root import startClickButton, stopClickButton, clickEntry, buttonApply, buttonStop
+import windows.root as windowRoot
 
 settingsFile = open("json/settings.json", "r")
 obj = json.loads(settingsFile.read())
@@ -14,12 +14,12 @@ def getStopSettings():
 
 def startSettings():
 
-    stopClickButton.config(state="disable")
-    clickEntry.config(state="disable")
-    buttonApply.config(state="disable")
-    buttonStop.config(state="disable")
+    windowRoot.stopClickButton.configure(state="disable")
+    windowRoot.clickEntry.configure(state="disable")
+    windowRoot.buttonApply.configure(state="disable")
+    windowRoot.buttonStop.configure(state="disable")
 
-    startClickButton.config(text="Press any key...")
+    windowRoot.startClickButton.configure(text="Press any key...")
     def waitUserPress():
         key = keyboard.read_key()
 
@@ -30,12 +30,12 @@ def startSettings():
             writeSettingsFile.write(str(obj).replace("'", '"'))
             writeSettingsFile.close()
 
-        startClickButton.config(text=obj["startButton"])
-        
-        stopClickButton.config(state="normal")
-        clickEntry.config(state="normal")
-        buttonApply.config(state="normal")
-        buttonStop.config(state="normal")
+        windowRoot.startClickButton.configure(text=obj["startButton"])
+
+        windowRoot.stopClickButton.configure(state="normal")
+        windowRoot.clickEntry.configure(state="normal")
+        windowRoot.buttonApply.configure(state="normal")
+        windowRoot.buttonStop.configure(state="normal")
 
     try:
         thread = threading.Thread(target=waitUserPress, daemon=True)
@@ -45,12 +45,12 @@ def startSettings():
 
 def stopSettings():
 
-    startClickButton.config(state="disable")
-    clickEntry.config(state="disable")
-    buttonApply.config(state="disable")
-    buttonStop.config(state="disable")
+    windowRoot.startClickButton.configure(state="disable")
+    windowRoot.clickEntry.configure(state="disable")
+    windowRoot.buttonApply.configure(state="disable")
+    windowRoot.buttonStop.configure(state="disable")
 
-    stopClickButton.config(text="Press any key...")
+    windowRoot.stopClickButton.configure(text="Press any key...")
     def waitUserPress():
         key = keyboard.read_key()
 
@@ -61,12 +61,12 @@ def stopSettings():
             writeSettingsFile.write(str(obj).replace("'", '"'))
             writeSettingsFile.close()
 
-        stopClickButton.config(text=obj["stopButton"])
-        
-        startClickButton.config(state="normal")
-        clickEntry.config(state="normal")
-        buttonApply.config(state="normal")
-        buttonStop.config(state="normal")
+        windowRoot.stopClickButton.configure(text=obj["stopButton"])
+
+        windowRoot.startClickButton.configure(state="normal")
+        windowRoot.clickEntry.configure(state="normal")
+        windowRoot.buttonApply.configure(state="normal")
+        windowRoot.buttonStop.configure(state="normal")
 
     try:
         thread = threading.Thread(target=waitUserPress, daemon=True)

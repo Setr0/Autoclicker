@@ -1,14 +1,15 @@
 import pyautogui, keyboard, win10toast, threading
 from windows.root import END, clickEntry, buttonApply, stopClickButton, startClickButton
-from func.settings import obj
-from func.widgetsFunctions import *
+from utils.settings import obj
 
 global running
 running = False
 
+
 def autoClicking():
     toaster = win10toast.ToastNotifier()
-    toaster.show_toast("Autoclicker", "Click STOP for changing the numbers", icon_path="icon/favicon.ico", threaded=True)
+    toaster.show_toast("Autoclicker", "Click STOP for changing the numbers", icon_path="icon/favicon.ico",
+                       threaded=True)
     while running:
         if keyboard.read_key() == obj["startButton"]:
             while True:
@@ -24,40 +25,32 @@ def autoClicking():
                 if not running:
                     break
 
+
 def stop():
-    clickEntry.config(state="normal")
+    clickEntry.configure(state="normal")
 
-    buttonApply.config(state="normal")
-    buttonApply.bind("<Enter>", hoverOnApply)
-    buttonApply.bind("<Leave>", hoverOffApply)
+    buttonApply.configure(state="normal")
 
-    stopClickButton.config(state="normal")
-    stopClickButton.bind("<Enter>", hoverOnStopClick)
-    stopClickButton.bind("<Leave>", hoverOffStopClick)
+    stopClickButton.configure(state="normal")
 
-    startClickButton.config(state="normal")
-    startClickButton.bind("<Enter>", hoverOnStartClick)
-    startClickButton.bind("<Leave>", hoverOffStartClick)
+    startClickButton.configure(state="normal")
 
     global running
     if running:
         running = False
 
+
 def run():
-    try :
+    try:
         if int(clickEntry.get()):
             global running
             if not running:
+                clickEntry.configure(state="disabled")
+                buttonApply.configure(state="disabled")
 
-                clickEntry.config(state="disabled")
-                buttonApply.config(state="disabled")
-                buttonApply.unbind("<Enter>")
+                stopClickButton.configure(state="disabled")
 
-                stopClickButton.config(state="disabled")
-                stopClickButton.unbind("<Enter>")
-                
-                startClickButton.config(state="disabled")
-                startClickButton.unbind("<Enter>")
+                startClickButton.configure(state="disabled")
 
                 running = True
                 thread = threading.Thread(target=autoClicking, daemon=True)
@@ -65,4 +58,3 @@ def run():
     except:
         clickEntry.delete(0, END)
         clickEntry.insert(0, "Only numbers")
-
