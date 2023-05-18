@@ -2,7 +2,7 @@
 <div align="center">
   <img src="https://github.com/Setr0/Autoclicker/blob/main/app.png" />
 </div>
-<h2>An autoclicker written in Python with the Interface in <a href="https://docs.python.org/3/library/tkinter.html">Tkinter</a></h2>
+<h2>An autoclicker written in Python with the Interface in <a href="https://github.com/TomSchimansky/CustomTkinter">Customtkinter</a></h2>
 
 <h3>Requirements</h3>
 <ul>
