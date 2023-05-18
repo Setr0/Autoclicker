@@ -5,11 +5,10 @@ from utils.settings import obj
 global running
 running = False
 
-
 def autoClicking():
     toaster = win10toast.ToastNotifier()
-    toaster.show_toast("Autoclicker", "Click STOP for changing the numbers", icon_path="icon/favicon.ico",
-                       threaded=True)
+    toaster.show_toast("Autoclicker", "Click STOP for changing the numbers", icon_path="icon/favicon.ico", threaded=True)
+
     while running:
         if keyboard.read_key() == obj["startButton"]:
             while True:
@@ -25,36 +24,33 @@ def autoClicking():
                 if not running:
                     break
 
-
 def stop():
     clickEntry.configure(state="normal")
-
     buttonApply.configure(state="normal")
-
     stopClickButton.configure(state="normal")
-
     startClickButton.configure(state="normal")
 
     global running
     if running:
         running = False
 
-
 def run():
     try:
-        if int(clickEntry.get()):
-            global running
-            if not running:
-                clickEntry.configure(state="disabled")
-                buttonApply.configure(state="disabled")
+        if not int(clickEntry.get()): return
 
-                stopClickButton.configure(state="disabled")
+        global running
+        if not running:
+            clickEntry.configure(state="disabled")
+            buttonApply.configure(state="disabled")
 
-                startClickButton.configure(state="disabled")
+            stopClickButton.configure(state="disabled")
 
-                running = True
-                thread = threading.Thread(target=autoClicking, daemon=True)
-                thread.start()
+            startClickButton.configure(state="disabled")
+
+            running = True
+            thread = threading.Thread(target=autoClicking, daemon=True)
+            thread.start()
+            
     except:
         clickEntry.delete(0, END)
         clickEntry.insert(0, "Only numbers")
