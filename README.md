@@ -11,7 +11,7 @@
   <li>run <code>pip install -r requirements.txt</code></li>
 </ul>
 
-<h3>Istructions</h3>
+<h3>Instruction</h3>
 <ul>
   <li>Enter the CPS Target in the input</li>
   <li>Press Apply for starting the program</li>
